@@ -18,10 +18,16 @@ return new class extends Migration
             $table->decimal('average_score', 5, 2)->nullable()->after('timeliness_score');
         });
 
+        if (Schema::hasTable('task_scores')) {
+
         // Add average_score to task_scores table
         Schema::table('task_scores', function (Blueprint $table) {
+            if (!Schema::hasColumn('task_scores', 'average_score')) {
             $table->decimal('average_score', 5, 2)->nullable()->after('timeliness_score');
+            }
         });
+
+    }
     }
 
     public function down()
