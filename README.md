@@ -1,70 +1,102 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Task Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-$$
-## @@@@About Laravel@@@@@@@@@
+A role-based task management system built with Laravel, designed to streamline project organization, task assignment, and performance evaluation. This system supports three primary user roles — **Admin**, **Manager**, and **User** — each with specific access levels and responsibilities.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✅ **User Roles & Authentication**
+- **Roles**: Admin, Manager, User
+- Laravel built-in authentication
+- Role-based access control
+- Users must log in to access features
 
-## Learning Laravel
+### 📁 **Project Management**
+- Managers can create, edit, and delete projects
+- Each project includes:
+  - Name & description
+  - Start & end dates
+  - Status (pending, in_progress, completed)
+  - Associated users
+- Project tasks managed within their scope
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📝 **Task Management**
+- Tasks belong to projects
+- Attributes include:
+  - Name, description, due date
+  - Status (Pending, In-Progress, Completed)
+  - Assigned user
+  - Category & priority
+- Managers assign tasks and track progress
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🔍 **Task Workflow**
+1. Manager creates and assigns tasks
+2. User works on the assigned task
+3. User submits deliverables (file required)
+4. Manager reviews and evaluates
+5. Task marked as completed upon approval
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📊 **Task Evaluation**
+- Manager evaluates tasks with:
+  - **Quality Score** (0–100)
+  - **Timeliness Score** (0–100)
+  - Feedback/comments
+- System calculates average scores
+- Submissions include file uploads
 
-## Laravel Sponsors
+### 🔧 **Admin Features**
+- Full access to all system data
+- Dashboard displays:
+  - User, task, project stats
+  - Task priorities & categories
+  - Performance metrics
+- Manage users, roles, and system settings
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 📂 **File Management**
+- Users upload files as part of task submission
+- Managers can download and review submissions
+- Secure and organized file storage
 
-### Premium Partners
+### 🔐 **Security Features**
+- Role-based access control
+- Input validation & sanitization
+- Resource ownership verification
+- Secure file upload & download handling
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 📦 Database Schema Overview
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Table Name           | Description                              |
+|----------------------|------------------------------------------|
+| `users`              | Stores user credentials and roles        |
+| `projects`           | Project metadata                         |
+| `tasks`              | Task details and assignments             |
+| `task_submissions`   | User-submitted task files                |
+| `manager_evaluations`| Evaluations with scores and feedback     |
+| `task_scores`        | Performance metrics for each user/task   |
+| `settings`           | System-wide configuration and preferences|
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ Business Rules
 
-## Security Vulnerabilities
+- Only **Managers** can create/edit/delete projects.
+- **Tasks** must be linked to a **Project**.
+- **Users** can only access tasks assigned to them.
+- **Managers** can only manage projects they created.
+- **Admins** have unrestricted access.
+- Task evaluation must include both quality & timeliness scores.
+- Submissions **require file attachments**.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🛠 Installation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# group-3-22RP03920_-_22RP02034-TaskManagementSystem
->>>>>>> 283f49965c28478a9868ed0035e010eb72c10039
+```bash
+git clone https://github.com/yourusername/laravel-task-manager.git
+cd laravel-task-manager
+composer install
+cp .env.example .env
+php artisan key:generate
