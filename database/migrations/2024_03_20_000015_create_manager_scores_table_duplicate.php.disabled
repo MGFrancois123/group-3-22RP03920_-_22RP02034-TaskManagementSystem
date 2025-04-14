@@ -1,0 +1,19 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateManagerScoresTableDuplicate20240320 extends Migration
+{
+    public function up()
+    {
+        // Table already created by 2024_03_20_000008_create_manager_scores_table.php
+        // This migration is kept for historical purposes
+    }
+
+    public function down()
+    {
+        // No need to drop table as it's handled by the first migration
+    }
+}
